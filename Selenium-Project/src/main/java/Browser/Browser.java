@@ -13,7 +13,7 @@ import java.util.Properties;
 
 public class Browser {
     private  static WebDriver driver;
-    private static String getPropertyValue(String propertyName){
+    public static String getPropertyValue(String propertyName){
         String propertyValue="";
         try {
             InputStream inputStream = new FileInputStream("src/main/resources/info.properties");
