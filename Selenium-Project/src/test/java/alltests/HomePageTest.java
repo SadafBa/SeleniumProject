@@ -2,33 +2,23 @@ package alltests;
 
 import Browser.Browser;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.ITestNGListener;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pages.HomePage;
 
 import java.time.Duration;
+@Listeners(value = TestListener.class)
 
-public class HomePageTest {
-     WebDriver driver;
+public class HomePageTest extends BaseTest{
+     WebDriver driver= Browser.getDriver();
 
-     @BeforeMethod
-     public void setUp(){
-          Browser.setDriver();
-          driver = Browser.getDriver();
-          driver.navigate().to(Browser.getPropertyValue("url"));
-          driver.manage().window().maximize();
-          driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-     }
      @Test
      public void test1(){
-          System.out.println("This is a test");
-          System.out.println("Testing git");
-          System.out.println("Another test");
-          System.out.println("Test2 is here");
-
-
-          
-
-
+                startHomePage().registerUser();
      }
 }
